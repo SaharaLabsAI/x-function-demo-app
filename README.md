@@ -1,0 +1,217 @@
+# Git-Repo-Deploy-Portal
+
+[![Next.js](https://img.shields.io/badge/Next.js-15.x-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.x-blue?style=flat-square&logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+
+
+## ✨ Features
+
+- 🚀 **Cutting-edge Tech Stack**: Next.js 15 + React 19 + TypeScript + Tailwind CSS 4
+- 🎨 **Rich UI Components**: 30+ exquisite components based on shadcn/ui
+- 🌙 **Theme Switching**: Built-in dark/light themes with automatic system theme detection
+- 📱 **Responsive Design**: Perfectly adapts to all device sizes
+- ⚡ **High Performance**: Supports Turbopack for excellent build and development experience
+- 🎭 **Animation Effects**: Integrated with Motion animation library for rich interactive experiences
+- 🛠️ **Best Practices**: Code standards, type safety, and component-driven development
+- 🌍 **Internationalization Support**: Integrated with i18next for easy multi-language implementation
+- 📦 **State Management**: Integrated with Zustand lightweight state management
+- 🎯 **Development Experience**: Complete development toolchain and ESLint configuration
+
+## 🛠️ Tech Stack
+
+### Core Frameworks
+
+- **Next.js 15** - React full-stack framework
+- **React 19** - UI construction library
+- **TypeScript 5** - Type-safe JavaScript
+
+### Styling and UI
+
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **shadcn/ui** - High-quality React component library
+- **Radix UI** - Accessible low-level UI primitives
+- **Lucide React** - Elegant icon library
+
+### Animation and Interaction
+
+- **Motion** - Powerful animation library
+- **React Spring** - Spring physics-based animations
+
+### State Management and Tools
+
+- **Zustand** - Lightweight state management
+- **ahooks** - Practical React Hooks library
+- **React Use** - Collection of commonly used React Hooks
+
+### Development Tools
+
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **Turbopack** - Blazing-fast build tool
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js >= 20.0 (recommended, required by shadcn/ui), minimum >= 18.17 for development
+- pnpm >= 8.0 (recommended) or npm/yarn
+
+### Installation
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/SaharaaQuestLab/git-repo-deploy-portal.git
+   cd git-repo-deploy-portal
+   ```
+
+2. **Install Dependencies**
+
+   ```bash
+   pnpm install
+   # or
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Start the Development Server**
+
+   ```bash
+   pnpm dev
+   # or
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. **Access the Application**
+
+   Open [http://localhost:3000](http://localhost:3000) to view the application
+
+## 📝 Available Scripts
+
+```bash
+# Development mode (with Turbopack)
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
+
+# Static file serving (for static export)
+pnpm serve
+
+# Lint code
+pnpm lint
+```
+
+### Static Export Mode
+
+If `output: 'export'` is configured in `next.config.ts`, `pnpm start` cannot be used. Follow these steps instead:
+
+```bash
+# 1. Build static files
+pnpm build
+
+# 2. Start static file server
+pnpm serve
+```
+
+> **Note**: Static export mode builds the application into pure static files, output to the `out` directory. Suitable for static hosting services like GitHub Pages, Netlify, etc.
+
+## 📁 Project Structure
+
+```text
+qiuye-nextjs-template/
+├── app/                    # Next.js app directory
+│   ├── favicon.ico
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── ui/               # UI base components
+│   ├── app-sidebar.tsx   # App sidebar
+│   ├── header.tsx        # Header component
+│   ├── theme-provider.tsx # Theme provider
+│   └── theme-toggle.tsx  # Theme toggle
+├── hooks/                # Custom Hooks
+├── lib/                  # Utility functions
+├── public/               # Static assets
+├── components.json       # shadcn/ui configuration
+├── next.config.ts        # Next.js configuration
+├── tailwind.config.js    # Tailwind CSS configuration
+└── tsconfig.json         # TypeScript configuration
+```
+
+## 🎨 UI Components
+
+- **Layout Components**: Card, Sheet, Sidebar, Resizable
+- **Navigation Components**: Navigation Menu, Breadcrumb, Pagination
+- **Form Components**: Button, Input, Select, Textarea, Switch
+- **Feedback Components**: Alert Dialog, Toast, Progress, Skeleton
+- **Data Display**: Table, Avatar, Badge, Tooltip
+- **Others**: Tabs, Dropdown Menu, Popover, Slider, etc.
+
+All components support theme switching, with complete type definitions and accessibility support.
+
+## 🌙 Theme System
+
+Built-in complete theme system:
+
+- 🌞 Light theme
+- 🌙 Dark theme  
+- 🔄 Automatic system theme detection
+- 🎨 Customizable theme colors
+
+Implemented with `next-themes`, supporting SSR flicker-free switching.
+
+## 📦 Deployment
+
+### Vercel Deployment (Recommended)
+
+The easiest way to deploy is using the [Vercel platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme):
+
+
+### Static Export Deployment
+
+For deployment to static hosting services (such as GitHub Pages, Netlify Static Hosting, etc.), use static export mode:
+
+1. **Configure Static Export**
+
+   Add to `next.config.ts`:
+
+   ```typescript
+   const nextConfig: NextConfig = {
+     output: 'export',
+     trailingSlash: true,
+     images: {
+       unoptimized: true
+     }
+   };
+   ```
+
+2. **Build and Deploy**
+
+   ```bash
+   # Build static files
+   pnpm build
+   
+   # Local preview (optional)
+   pnpm serve
+   
+   # Deploy the out directory to your static hosting service
+   ```
+
+### Other Deployment Options
+
+- **Netlify**: Supports both static export and server-side rendering
+- **Railway**: Simple full-stack deployment
+- **Docker**: Containerized deployment
+- **Self-hosting**: Use `pnpm build` and `pnpm start`
+
+For detailed deployment guides, refer to the [Next.js Deployment Documentation](https://nextjs.org/docs/app/building-your-application/deploying).

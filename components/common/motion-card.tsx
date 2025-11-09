@@ -52,15 +52,10 @@ export function MotionCard({
         <div className='absolute top-0 -left-4 w-72 h-72 bg-primary/30 rounded-full blur-3xl' />
         <div className='absolute bottom-0 -right-4 w-72 h-72 bg-accent/20 rounded-full blur-3xl' />
       </div>
-
       <div className='absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent' />
-
       <div className='absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent' />
-
       <div className='absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent' />
-
       <div className='absolute top-0 right-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent' />
-
       <div className='relative z-10'>{children}</div>
     </motion.div>
   );

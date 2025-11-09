@@ -36,7 +36,6 @@ const MotionButton = ({
 
   return (
     <motion.button
-      // ✅ loading 状态下的呼吸动画
       animate={
         loading
           ? {
@@ -66,7 +65,6 @@ const MotionButton = ({
     >
       {loading ? (
         <div className='flex items-center justify-center gap-2'>
-          {/* ✅ 旋转的加载图标 */}
           <motion.svg
             animate={{ rotate: 360 }}
             transition={{
@@ -94,7 +92,6 @@ const MotionButton = ({
             />
           </motion.svg>
 
-          {/* ✅ 加载文字带淡入淡出动画 */}
           <motion.span
             animate={{
               opacity: [1, 0.5, 1],

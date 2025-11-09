@@ -52,7 +52,6 @@ export function useServiceStatus(options: UseServiceStatusOptions = {}) {
 
       pollingErrorRetryCount: retryCount,
 
-      // ✅ 回调函数
       onSuccess: (result) => {
         onSuccess?.(result);
         onPolling?.(result);

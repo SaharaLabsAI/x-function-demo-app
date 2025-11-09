@@ -7,9 +7,13 @@
     "build": "next build --turbopack",
     "start": "next start",
     "serve": "npx serve@latest out",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/prompt-cli": "^20.1.0",
     "@heroicons/react": "^2.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-aspect-ratio": "^1.1.7",
@@ -42,6 +46,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.10",
     "framer-motion": "^12.23.24",
+    "husky": "^9.1.7",
     "i18next": "^24.2.2",
     "lodash": "^4.17.21",
     "lucide-react": "^0.544.0",

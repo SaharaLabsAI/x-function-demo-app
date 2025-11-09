@@ -1,4 +1,3 @@
-/* eslint-disable promise/catch-or-return */
 import axios from 'axios';
 import { serviceGenerator } from './';
 

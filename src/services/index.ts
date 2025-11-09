@@ -1,4 +1,3 @@
-/* eslint-disable promise/catch-or-return */
 import { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
 interface IAxiosTypes<T> {

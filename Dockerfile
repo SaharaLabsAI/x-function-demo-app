@@ -9,7 +9,7 @@ COPY package.json yarn.lock ./
 
 RUN yarn config set nodeLinker node-modules
 
-RUN yarn install --frozen-lockfile && yarn cache clean
+RUN yarn install && yarn cache clean
 
 COPY . .
 

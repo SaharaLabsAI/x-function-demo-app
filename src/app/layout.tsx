@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "X/function extension demo",
-  description: "X/function extension demo.",
+  title: "x/function extension demo",
+  description: "x/function extension demo.",
 };
 
 export default function RootLayout({

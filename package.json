@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build --turbopack && touch out/.nojekyll",
     "build:gh-pages": "GITHUB_PAGES=true next build",
     "start": "next start",
     "serve": "npx serve@latest out",

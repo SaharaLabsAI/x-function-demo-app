@@ -12,10 +12,10 @@ const Header: React.FC = () => {
         </div>
         <div>
           <div className='text-xs text-primary font-semibold tracking-widest'>
-          X/function
+            x/function
           </div>
           <h1 className='text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary text-gradient-primary'>
-          Pay for function call
+            Pay for function call
           </h1>
         </div>
       </div>

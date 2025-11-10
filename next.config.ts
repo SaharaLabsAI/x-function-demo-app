@@ -4,8 +4,8 @@ const isDev = process.env.NODE_ENV === "development";
 console.log("isDev:", isDev);
 const nextConfig: NextConfig = {
   /* config options here */
-  basePath: "/x-function-demo-app",
-  assetPrefix: "/x-function-demo-app",
+  basePath: "",
+  assetPrefix: "",
   output: "export",
   trailingSlash: false,
   images: {

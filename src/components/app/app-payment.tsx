@@ -18,7 +18,7 @@ export default function AppConnectModule({
   onPaymentSuccess?: (res: any) => void;
 }) {
   const repoUrl = useRef(
-    "https://github.com/RonghuanZhang/hive-service-samples.git"
+    "https://github.com/SaharaLabsAI/weather-function-sample.git"
   );
   const { address, isConnected, chain } = useAccount();
   const { fetchHandlerAsync, loading: paymentLoading } =

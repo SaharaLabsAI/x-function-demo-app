@@ -17,7 +17,7 @@ interface UseServiceStatusOptions {
 export function useServiceStatus(options: UseServiceStatusOptions = {}) {
   const {
     serviceId,
-    pollingInterval = 3000,
+    pollingInterval = 10 * 1000,
     enabled = false,
     retryCount = 3,
     onSuccess,

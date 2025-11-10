@@ -4,12 +4,13 @@ const isDev = process.env.NODE_ENV === "development";
 console.log("isDev:", isDev);
 const nextConfig: NextConfig = {
   /* config options here */
-  basePath: process.env.NEXT_PUBLIC_BASE_URL,
-  // output: isDev ? undefined : "export",
-  // trailingSlash: true,
-  // images: {
-  //   unoptimized: true,
-  // },
+  basePath: "/x-function-demo-app",
+  assetPrefix: "/x-function-demo-app",
+  output: "export",
+  trailingSlash: false,
+  images: {
+    unoptimized: true,
+  },
   async rewrites() {
     if (!isDev) return [];
 

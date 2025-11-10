@@ -1,6 +1,7 @@
 "use client";
 
 import { IDeployDetailsResDto } from "@/types/app";
+import { formatServiceDetails } from "@/lib/app";
 import { getServiceStatus } from "@/services/app/getServiceDetail";
 import { useRequest } from "ahooks";
 
@@ -9,6 +10,7 @@ interface UseServiceStatusOptions {
   pollingInterval?: number;
   enabled?: boolean;
   retryCount?: number;
+  retryInterval?: number;
   onSuccess?: (data: IDeployDetailsResDto) => void;
   onError?: (error: Error) => void;
   onPolling?: (data: IDeployDetailsResDto) => void;
@@ -20,6 +22,7 @@ export function useServiceStatus(options: UseServiceStatusOptions = {}) {
     pollingInterval = 10 * 1000,
     enabled = false,
     retryCount = 3,
+    retryInterval = 2000,
     onSuccess,
     onError,
     onPolling,
@@ -35,10 +38,12 @@ export function useServiceStatus(options: UseServiceStatusOptions = {}) {
     mutate,
   } = useRequest(
     async () => {
-      if (!serviceId) {
-        throw new Error("Service ID is required");
-      }
-      const response = await getServiceStatus(serviceId);
+      const response = await getServiceStatus(serviceId!);
+      const formattedDetails = formatServiceDetails(response.extra?.details || []);
+      response.extra = {
+        ...response.extra,
+        details: formattedDetails,
+      };
       return response;
     },
     {
@@ -47,7 +52,8 @@ export function useServiceStatus(options: UseServiceStatusOptions = {}) {
       pollingInterval: enabled && serviceId ? pollingInterval : undefined,
       pollingWhenHidden: false,
       pollingErrorRetryCount: retryCount,
-
+      retryCount,
+      retryInterval,
       onSuccess: (result) => {
         onSuccess?.(result);
         onPolling?.(result);
@@ -61,7 +67,7 @@ export function useServiceStatus(options: UseServiceStatusOptions = {}) {
 
       onError: (err) => {
         console.error("Service status polling error:", err);
-        onError?.(err as Error);
+        // onError?.(err as Error);
       },
 
       refreshDeps: [serviceId, enabled],

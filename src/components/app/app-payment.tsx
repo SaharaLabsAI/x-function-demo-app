@@ -1,6 +1,6 @@
 "use client";
 
-import { useAccount, useBalance } from "wagmi";
+import { DetailItem, DetailList } from "./app-payment-details";
 import { useMemo, useRef } from "react";
 
 import { ConnectButton } from "@rainbow-me/rainbowkit";
@@ -8,6 +8,7 @@ import MotionButton from "@/components/common/motion-button";
 import { MotionCard } from "../common/motion-card";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { useAccount } from "wagmi";
 import { useBaseSepoliaUsdc } from "@/hooks/common/use-base-sepolia-usdc";
 import { useFetchWithX402Payment } from "@/hooks/common/use-x402-fetch";
 
@@ -20,9 +21,6 @@ export default function AppConnectModule({
     "https://github.com/RonghuanZhang/hive-service-samples.git"
   );
   const { address, isConnected, chain } = useAccount();
-  const { data: balance } = useBalance({
-    address: address,
-  });
   const { fetchHandlerAsync, loading: paymentLoading } =
     useFetchWithX402Payment({
       endPath: "/apis/x402/v1/services",
@@ -37,9 +35,15 @@ export default function AppConnectModule({
     value: usdcValue,
   } = useBaseSepoliaUsdc();
 
-  const detailItems = useMemo(() => {
+  const detailItems: DetailItem[] = useMemo(() => {
     if (!isConnected) return [];
     return [
+      {
+        label: "Function",
+        value: "SaharalabsAI/WeatherFunction",
+        highlight: true,
+        src: "https://github.com/SaharaLabsAI/weather-function-sample.git",
+      },
       {
         label: "Connected Wallet",
         value: "Active",
@@ -52,7 +56,6 @@ export default function AppConnectModule({
       {
         label: "Balance",
         value: isLoadingUsdc ? "Loading..." : `${usdcBalance} USDC`,
-        highlight: true,
       },
       {
         label: "Amount",
@@ -63,7 +66,7 @@ export default function AppConnectModule({
         value: chain?.name || "",
       },
     ];
-  }, [isConnected, address, balance, chain]);
+  }, [isConnected, address, isLoadingUsdc, usdcBalance, chain?.name]);
 
   const onPayment = () => {
     if (usdcValue < 0.01) {
@@ -105,25 +108,7 @@ export default function AppConnectModule({
         {isConnected && (
           <div className='mt-8'>
             <div className='bg-dark/50 p-6 rounded-lg border border-primary/20'>
-              {detailItems.map((item, index) => (
-                <div
-                  key={item.label}
-                  className={`flex justify-between items-center mb-4 ${
-                    index === detailItems.length - 1 ? "" : "mb-4"
-                  }`}
-                >
-                  <span className='text-gray-400'>{item.label}</span>
-                  <span
-                    className={cn({
-                      "text-xs px-2 py-1 bg-primary/20 text-primary rounded-full":
-                        item.isStatus,
-                      "font-mono text-sm truncate text-primary": !item.isStatus,
-                    })}
-                  >
-                    {item.value}
-                  </span>
-                </div>
-              ))}
+              <DetailList items={detailItems} />
             </div>
 
             <MotionButton
@@ -131,7 +116,7 @@ export default function AppConnectModule({
               onClick={onPayment}
               loading={paymentLoading}
             >
-              Payment
+              Pay now
             </MotionButton>
           </div>
         )}

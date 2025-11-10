@@ -17,14 +17,12 @@ interface AppDeploymentProps {
 }
 
 const titleMap = {
-  deploying: "Deploying Application...",
+  deploying: "Waiting for application ready",
   deployed: "Application Deployed Successfully",
-  unDeploy: "Ready to Deploy Application",
 };
 const buttonTextMap = {
   deploying: "Deploying...",
   deployed: "Back",
-  unDeploy: "Start Deployment",
 };
 const statusIconMap = {
   True: <SquareCheck className='text-success ml-2' />,
@@ -82,14 +80,15 @@ const mainVariants: Variants = {
 type deployStatusType = keyof typeof titleMap;
 export function AppDeployment({ serviceInfo, onReset }: AppDeploymentProps) {
   const [deployStatus, setDeployStatus] =
-    useState<deployStatusType>("unDeploy");
+    useState<deployStatusType>("deploying");
+
   const { data: serviceDetail } = useServiceStatus({
     serviceId: serviceInfo?.id,
     enabled: deployStatus === "deploying",
     pollingInterval: 3000,
     onError: (error) => {
       toast.error(`Deployment error: ${error.message}`);
-      setDeployStatus("unDeploy");
+      onReset?.();
     },
     onSuccess: (data) => {
       if (data.ready) {
@@ -110,11 +109,7 @@ export function AppDeployment({ serviceInfo, onReset }: AppDeploymentProps) {
   }
 
   const actionHandler = () => {
-    if (deployStatus === "unDeploy") {
-      setDeployStatus("deploying");
-    } else if (deployStatus === "deployed") {
-      onReset?.();
-    }
+    onReset?.();
   };
 
   const detailsLogs = () => {

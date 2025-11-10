@@ -4,10 +4,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, Copy, Loader2 } from "lucide-react";
 
 import dynamic from "next/dynamic";
-import { useGetWeatherInfo } from '@/hooks/app/useGetWeatherInfo';
+import { useGetWeatherInfo } from "@/hooks/app/useGetWeatherInfo";
 import { useState } from "react";
 
-const ReactJson = dynamic(() => import('react-json-view'), { ssr: false });
+const ReactJson = dynamic(() => import("react-json-view"), { ssr: false });
 
 export const AppResultContainer = ({ result = "" }: { result?: string }) => {
   const [copied, setCopied] = useState(false);
@@ -34,7 +34,7 @@ export const AppResultContainer = ({ result = "" }: { result?: string }) => {
 
         <div className='flex items-center justify-between mb-4'>
           <h3 className='text-lg font-semibold text-primary'>
-            Service Data
+            Function Result
           </h3>
           <button
             onClick={handleCopy}
@@ -55,23 +55,21 @@ export const AppResultContainer = ({ result = "" }: { result?: string }) => {
           </button>
         </div>
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode='wait'>
           {loading ? (
             <motion.div
-              key="loading"
+              key='loading'
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className='flex flex-col items-center justify-center py-12'
             >
               <Loader2 className='w-12 h-12 text-primary animate-spin mb-4' />
-              <p className='text-sm text-muted-foreground'>
-                Fetching data...
-              </p>
+              <p className='text-sm text-muted-foreground'>Fetching data...</p>
             </motion.div>
           ) : data ? (
             <motion.div
-              key="data"
+              key='data'
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -79,7 +77,7 @@ export const AppResultContainer = ({ result = "" }: { result?: string }) => {
             >
               <ReactJson
                 src={data}
-                theme="monokai"
+                theme='monokai'
                 collapsed={2}
                 displayDataTypes={false}
                 displayObjectSize={true}
@@ -87,16 +85,16 @@ export const AppResultContainer = ({ result = "" }: { result?: string }) => {
                 indentWidth={2}
                 name={false}
                 style={{
-                  background: 'rgba(0, 0, 0, 0.2)',
-                  padding: '1rem',
-                  borderRadius: '0.5rem',
-                  fontSize: '0.875rem',
+                  background: "rgba(0, 0, 0, 0.2)",
+                  padding: "1rem",
+                  borderRadius: "0.5rem",
+                  fontSize: "0.875rem",
                 }}
               />
             </motion.div>
           ) : (
             <motion.div
-              key="empty"
+              key='empty'
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

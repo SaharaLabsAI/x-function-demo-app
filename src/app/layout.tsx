@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Git Repo Deploy Portal",
-  description: "Auto deploy your Git repositories with ease.",
+  title: "X/function extension demo",
+  description: "X/function extension demo.",
 };
 
 export default function RootLayout({

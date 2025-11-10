@@ -12,10 +12,10 @@ const Header: React.FC = () => {
         </div>
         <div>
           <div className='text-xs text-primary font-semibold tracking-widest'>
-            BLOCKCHAIN DEPLOYMENT
+          X/function
           </div>
           <h1 className='text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary text-gradient-primary'>
-            DEPLOYER X402
+          Pay for function call
           </h1>
         </div>
       </div>

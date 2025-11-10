@@ -52,7 +52,7 @@ export function AppDeploymentFlow() {
   };
 
   return (
-    <div className='flex-1 container mx-auto px-4 py-8'>
+    <div className='flex-1 container mx-auto pb-8'>
       <AnimatePresence mode='wait'>
         <motion.div
           key={currentStepConfig.key}

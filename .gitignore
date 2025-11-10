@@ -3,4 +3,8 @@
 # next.js
 /.next/
 /out/
-/.yarn/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions

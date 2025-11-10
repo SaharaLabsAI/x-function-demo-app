@@ -9,7 +9,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 
 RUN yarn config set nodeLinker node-modules && \
-    yarn install --immutable && \
+    yarn install  && \
     yarn cache clean
 
 COPY . .

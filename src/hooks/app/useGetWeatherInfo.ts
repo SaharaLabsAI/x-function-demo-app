@@ -9,11 +9,13 @@ export function useGetWeatherInfo({
 }) {
   const { data, error, loading, run, cancel, refresh, mutate } = useRequest(
     async () => {
-      const response = await fetch(`${host}/weather?latitude=52.52&longitude=13.41`, {
+      const normalizedHost = host.replace(/^http:/, 'https:');
+      const response = await fetch(`${normalizedHost}/weather?latitude=52.52&longitude=13.41`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
+        mode: 'cors',
       });
       const res = await response.json();
       return res;

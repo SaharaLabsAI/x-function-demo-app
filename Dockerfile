@@ -1,24 +1,23 @@
 FROM node:20.12.0 AS builder
 
 RUN corepack enable && corepack prepare yarn@4.1.1 --activate
-
-RUN yarn --version
+RUN which yarn && yarn --version
 
 WORKDIR /app
 
 COPY package.json yarn.lock ./
 
 RUN yarn config set nodeLinker node-modules && \
-    yarn install  && \
+    yarn install && \
     yarn cache clean
 
 COPY . .
 
-RUN yarn build
+RUN $(which yarn) build
 
 FROM node:20.12.0-alpine
 
-RUN corepack enable
+RUN corepack enable && corepack prepare yarn@4.1.1 --activate
 
 WORKDIR /app
 
@@ -29,4 +28,4 @@ COPY --from=builder /app/public ./public
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["$(which yarn)", "start"]

@@ -2,8 +2,13 @@
 
 import { motion } from "framer-motion";
 import { toast } from "sonner";
-
+import {useGetWeatherInfo} from '@/hooks/app/useGetWeatherInfo';
 export const AppResultContainer = ({ result = "" }: { result?: string }) => {
+  const {data} = useGetWeatherInfo({
+    host: result
+  });
+
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
@@ -61,7 +66,7 @@ export const AppResultContainer = ({ result = "" }: { result?: string }) => {
         >
           <div className='bg-dark/50 rounded-lg p-4 border border-primary/10'>
             <pre className='text-sm text-gray-300 whitespace-pre-wrap break-words font-mono leading-relaxed'>
-              {result}
+              {data}
             </pre>
           </div>
 
@@ -69,7 +74,7 @@ export const AppResultContainer = ({ result = "" }: { result?: string }) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
-              navigator.clipboard.writeText(result || "");
+              navigator.clipboard.writeText(data || "");
               toast.success("Copied to clipboard!");
             }}
             className='absolute top-2 right-2 p-2 rounded-md bg-primary/10 hover:bg-primary/20 border border-primary/30 transition-colors group'

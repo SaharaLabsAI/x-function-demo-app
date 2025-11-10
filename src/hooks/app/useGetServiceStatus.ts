@@ -5,7 +5,6 @@ import { getServiceStatus } from "@/services/app/getServiceDetail";
 import { useRequest } from "ahooks";
 
 interface UseServiceStatusOptions {
-
   serviceId?: string;
   pollingInterval?: number;
   enabled?: boolean;
@@ -45,11 +44,8 @@ export function useServiceStatus(options: UseServiceStatusOptions = {}) {
     {
       manual: false,
       ready: !!serviceId && enabled,
-
       pollingInterval: enabled && serviceId ? pollingInterval : undefined,
-
       pollingWhenHidden: false,
-
       pollingErrorRetryCount: retryCount,
 
       onSuccess: (result) => {

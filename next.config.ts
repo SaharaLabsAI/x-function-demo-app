@@ -5,11 +5,11 @@ console.log("isDev:", isDev);
 const nextConfig: NextConfig = {
   /* config options here */
   basePath: process.env.NEXT_PUBLIC_BASE_URL,
-  output: isDev ? undefined : "export",
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
+  // output: isDev ? undefined : "export",
+  // trailingSlash: true,
+  // images: {
+  //   unoptimized: true,
+  // },
   async rewrites() {
     if (!isDev) return [];
 

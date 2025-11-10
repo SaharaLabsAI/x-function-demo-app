@@ -50,13 +50,11 @@
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
 - **Turbopack** - Blazing-fast build tool
-
 ## 🚀 Quick Start
-
 ### Prerequisites
 
 - Node.js >= 20.0 (recommended, required by shadcn/ui), minimum >= 18.17 for development
-- pnpm >= 8.0 (recommended) or npm/yarn
+- yarn >= 3.0 (recommended) or yarn 4.1.1
 
 ### Installation
 
@@ -70,20 +68,12 @@
 2. **Install Dependencies**
 
    ```bash
-   pnpm install
-   # or
-   npm install
-   # or
    yarn install
    ```
 
 3. **Start the Development Server**
 
    ```bash
-   pnpm dev
-   # or
-   npm run dev
-   # or
    yarn dev
    ```
 
@@ -95,31 +85,31 @@
 
 ```bash
 # Development mode (with Turbopack)
-pnpm dev
+yarn dev
 
 # Build for production
-pnpm build
+yarn build
 
 # Start production server
-pnpm start
+yarn start
 
 # Static file serving (for static export)
-pnpm serve
+yarn serve
 
 # Lint code
-pnpm lint
+yarn lint
 ```
 
 ### Static Export Mode
 
-If `output: 'export'` is configured in `next.config.ts`, `pnpm start` cannot be used. Follow these steps instead:
+If `output: 'export'` is configured in `next.config.ts`, `yarn start` cannot be used. Follow these steps instead:
 
 ```bash
 # 1. Build static files
-pnpm build
+yarn build
 
 # 2. Start static file server
-pnpm serve
+yarn serve
 ```
 
 > **Note**: Static export mode builds the application into pure static files, output to the `out` directory. Suitable for static hosting services like GitHub Pages, Netlify, etc.
@@ -199,10 +189,10 @@ For deployment to static hosting services (such as GitHub Pages, Netlify Static 
 
    ```bash
    # Build static files
-   pnpm build
+   yarn build
    
    # Local preview (optional)
-   pnpm serve
+   yarn serve
    
    # Deploy the out directory to your static hosting service
    ```
@@ -212,6 +202,20 @@ For deployment to static hosting services (such as GitHub Pages, Netlify Static 
 - **Netlify**: Supports both static export and server-side rendering
 - **Railway**: Simple full-stack deployment
 - **Docker**: Containerized deployment
-- **Self-hosting**: Use `pnpm build` and `pnpm start`
+- **Self-hosting**: Use `yarn build` and `yarn start`
 
 For detailed deployment guides, refer to the [Next.js Deployment Documentation](https://nextjs.org/docs/app/building-your-application/deploying).
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+This means you are free to:
+- ✅ Use commercially
+- ✅ Modify the code
+- ✅ Distribute the code
+- ✅ Use privately
+
+The only requirement is to include the original license and copyright notice.
+
+---

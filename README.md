@@ -36,9 +36,9 @@ If you're using this demo, please **★Star** this repository to show your inter
 
 ## Screenshots
 
-| Payment Screen                                                                                | Deployment Status Screen                                                 |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [![Screenshot of payment screen](/docs/img/payment-screen.png)](/docs/img/payment-screen.png) | [![Screenshot of deployment status](/)](/docs/img/deployment-status.png) |
+| Payment Screen                                                                                | Deployment Status Screen                                                                               |
+| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| [![Screenshot of payment screen](/docs/img/payment-screen.png)](/docs/img/payment-screen.png) | [![Screenshot of deployment status](/docs/img/deployment-status.png)](/docs/img/deployment-status.png) |
 
 ## 🚀 Quick Start
 

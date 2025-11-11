@@ -107,9 +107,7 @@ export default function AppConnectModule({
         </div>
         {isConnected && (
           <div className='mt-8'>
-            <div className='bg-dark/50 p-6 rounded-lg border border-primary/20'>
-              <DetailList items={detailItems} />
-            </div>
+            <DetailList items={detailItems} />
 
             <MotionButton
               className='mt-6 w-full'

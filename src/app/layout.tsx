@@ -19,6 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "x/function extension demo",
   description: "x/function extension demo.",
+  icons: [{ url: "/favicon.svg", type: "image/svg+xml" }],
 };
 
 export default function RootLayout({
